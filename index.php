@@ -7,7 +7,7 @@ use Libs\Response;
 use Phalcon\Mvc\Micro;
 
 // Load .env
-if ($_ENV["ENV"] !== "prod") {
+if (!isset($_ENV["ENV"]) || $_ENV["ENV"] !== "prod") {
     $Loader = new Loader(__DIR__ . "/.env");
     $Loader->raiseExceptions(false);
     $Loader->parse();

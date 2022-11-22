@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use DateTime;
+use Factories\CacheFactory;
 use GuzzleHttp\Exception\GuzzleException;
 use Libs\Response;
 use Models\Currency;
@@ -18,8 +19,6 @@ use Services\ApiLayer;
 
 class DataController extends Controller
 {
-    const CACHE_TTL = 7200;
-
     /**
      * @return ResponseInterface
      * @throws GuzzleException
@@ -50,15 +49,7 @@ class DataController extends Controller
             return Response::fail("validation fail", $validation->jsonSerialize());
         }
 
-        $serializerFactory = new SerializerFactory();
-        $options           = [
-            'defaultSerializer' => 'Json',
-            'lifetime'          => self::CACHE_TTL,
-            'storageDir'        => 'cache',
-        ];
-        $adapter           = new Stream($serializerFactory, $options);
-        $cache             = new Cache($adapter);
-
+        $cache = CacheFactory::init();
         $key = "{$data["fromCurrency"]}__{$data["fromCurrencyBaseAmount"]}";
 
         if (!empty($data["refresh"])) {

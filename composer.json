@@ -20,7 +20,8 @@
             "Controllers\\": "Controllers/",
             "Libs\\": "Libs/",
             "Models\\": "Models/",
-            "Services\\": "Services/"
+            "Services\\": "Services/",
+            "Factories\\": "Factories/"
         }
     }
 }

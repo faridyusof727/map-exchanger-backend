@@ -1,0 +1,5 @@
+.idea
+testcache
+vendor
+cache
+.env

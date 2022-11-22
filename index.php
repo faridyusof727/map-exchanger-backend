@@ -7,9 +7,12 @@ use Libs\Response;
 use Phalcon\Mvc\Micro;
 
 // Load .env
-$Loader = new Loader(__DIR__ . "/.env");
-$Loader->parse();
-$Loader->toEnv();
+if ($_ENV["ENV"] !== "prod") {
+    $Loader = new Loader(__DIR__ . "/.env");
+    $Loader->raiseExceptions(false);
+    $Loader->parse();
+    $Loader->toEnv();
+}
 
 $app = new Micro();
 

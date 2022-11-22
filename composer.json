@@ -1,0 +1,26 @@
+{
+    "name": "faridyusof727/exchanger",
+    "authors": [
+        {
+            "name": "Farid Yusof",
+            "email": "faridyusof727@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phalcon/ide-stubs": "^5.1",
+        "phpstan/phpstan": "^1.9"
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^7.0",
+        "josegonzalez/dotenv": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Contracts\\": "Contracts/",
+            "Controllers\\": "Controllers/",
+            "Libs\\": "Libs/",
+            "Models\\": "Models/",
+            "Services\\": "Services/"
+        }
+    }
+}

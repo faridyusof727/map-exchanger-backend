@@ -1,0 +1,15 @@
+parameters:
+    level: 5
+    paths:
+        - index.php
+        - Contracts
+        - Controllers
+        - Libs
+        - Models
+        - Services
+    bootstrapFiles:
+        - vendor/autoload.php
+    stubFiles:
+        - vendor/phalcon/ide-stubs/src/Di/Injectable.php
+    excludePaths:
+        - vendor
